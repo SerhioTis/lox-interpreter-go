@@ -3,7 +3,14 @@ package main
 import (
 	"fmt"
 	"os"
+
+	"github.com/codecrafters-io/interpreter-starter-go/internal/scanner"
 )
+
+func runFile() {
+
+}
+
 
 func main() {
 	if len(os.Args) < 3 {
@@ -26,8 +33,16 @@ func main() {
 	}
 
 	if len(fileContents) > 0 {
-		panic("Scanner not implemented")
+		s := scanner.NewScanner(string(fileContents))
+		tokens,err := s.ScanTokens()
+		if err != nil {
+			fmt.Println(err)
+			return
+		}
+		for _, t := range(tokens) {
+			fmt.Fprintln(os.Stdout, t)
+		}
 	} else {
-		fmt.Println("EOF  null") 
+		fmt.Println("EOF  null")
 	}
 }
