@@ -13,8 +13,8 @@ const (
 	MINUS="MINUS"
 	PLUS="PLUS"
 	SEMICOLON="SEMICOLON"
-	SLASH
-	STAR
+	SLASH="SLASH"
+	STAR="STAR"
 
 	// One or two character tokens.
 	BANG
